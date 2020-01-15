@@ -23,31 +23,26 @@ import sys
 import calendar
 from datetime import datetime
 
+# Variables
+# System Args from Terminal
 sysargs = sys.argv
-# print(f'{sysargs[0]}, {sysargs[1]}, [{sysargs[2]}]')
-
-# theyear = sysargs[2]
-# themonth = sysargs[1]
-
+# Create a calendar; store it in a variable object.
 newcal = calendar.TextCalendar(firstweekday=0)
+currdate = datetime.today()
 
 def calendar_app(args):
   count = len(args)
   providedmonth = ""
   providedyear = ""
   if count == 1: 
-    providedmonth = datetime.today().month
-    providedyear = datetime.today().year
-    print("Current month: ", providedmonth)
+    providedmonth = currdate.month
+    providedyear = currdate.year
   elif count == 2:
     providedmonth = int(args[1])
-    providedyear = datetime.today().year
-    print("Month provided by user: ", providedmonth)
+    providedyear = currdate.year
   elif count == 3:
     providedmonth = int(args[1])
     providedyear = int(args[2])
-    print("Month provided by user: ", providedmonth)
-    print("Year provided by user: ", providedyear)
   else:
     print("Please provide a file, month, year in that order.")
     return 
@@ -56,3 +51,4 @@ def calendar_app(args):
 
 # invoke the function
 calendar_app(sysargs)
+sys.exit()
