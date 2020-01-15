@@ -29,17 +29,19 @@ sysargs = sys.argv
 # Create a calendar; store it in a variable object.
 newcal = calendar.TextCalendar(firstweekday=0)
 currdate = datetime.today()
+month = currdate.month
+year = currdate.year
 
 def calendar_app(args):
   count = len(args)
   providedmonth = ""
   providedyear = ""
   if count == 1: 
-    providedmonth = currdate.month
-    providedyear = currdate.year
+    providedmonth = month
+    providedyear = year
   elif count == 2:
     providedmonth = int(args[1])
-    providedyear = currdate.year
+    providedyear = year
   elif count == 3:
     providedmonth = int(args[1])
     providedyear = int(args[2])
